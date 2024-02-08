@@ -1,19 +1,25 @@
 package com.example.combinator;
 
+import java.util.List;
+
 public class CombinedTree<T> {
-  private RootNode<T> rootNote;
+  private RootNode<T> rootNode;
 
   public CombinedTree() {
-    this.rootNote = new RootNode<T>();
+    this.rootNode = new RootNode<T>();
   }
 
   public RootNode<T> getRootNode() {
-    return rootNote;
+    return rootNode;
   }
 
   public CombinedTree<T> combineArray(T[] array) {
-    processCombinations(array, 0, rootNote);
+    processCombinations(array, 0, rootNode);
     return this;
+  }
+
+  public List<List<T>> getCombinations() {
+    return rootNode.getCombinations();
   }
 
   private void processCombinations(T[] array, int startIndex, RootNode<T> node) {
